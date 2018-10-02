@@ -41,7 +41,10 @@ public class WebController {
 //        return "/index";
 //
 //    }
-
+  @RequestMapping("/")
+  public String poemPage(){
+	  return "poem";
+  }
     @RequestMapping("/tt")
     public String index1(
                        @RequestParam(value="pageIndex",required=false,defaultValue="0") int pageIndex,

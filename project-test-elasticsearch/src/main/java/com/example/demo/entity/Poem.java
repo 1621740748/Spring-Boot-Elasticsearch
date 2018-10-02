@@ -12,7 +12,7 @@ import org.springframework.data.elasticsearch.annotations.Document;
  *
  */
 //定义索引名字及类型
-@Document(indexName = "poem",type = "poem",shards = 1, replicas = 0)
+@Document(indexName = "poem",type = "poem",shards = 5, replicas = 0)
 public class Poem {
 
     @Id
