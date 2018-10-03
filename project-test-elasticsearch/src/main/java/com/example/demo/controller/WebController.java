@@ -27,18 +27,6 @@ public class WebController {
 	@Autowired
 	private PoemServiceImpl poemService;
 
-	@RequestMapping(value="/poem/save",method=RequestMethod.POST)
-	public String savePoem(Poem poem){
-        poem.setId(System.currentTimeMillis());
-        System.out.println(JSON.toJSONString(poem));
-        
-		poemService.save(poem);
-		return "/ok";
-	}
-	@RequestMapping("/")
-	public String poemPage(){
-		return "poem";
-	}
 	@RequestMapping("/tt")
 	public String index1(
 			@RequestParam(value="pageIndex",required=false,defaultValue="0") int pageIndex,
