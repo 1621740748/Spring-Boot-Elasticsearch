@@ -2,6 +2,8 @@ package com.example.demo.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
 
 
@@ -16,8 +18,11 @@ import org.springframework.data.elasticsearch.annotations.Document;
 public class Poem {
 
     @Id
+    @Field(type = FieldType.Keyword)
     private long id;
+    @Field(type = FieldType.Text,searchAnalyzer = "ik", analyzer = "ik")
     private String title;
+    @Field(type = FieldType.Text, searchAnalyzer = "ik", analyzer = "ik")
     private String content;
 
     public Poem(long id, String title, String content) {
