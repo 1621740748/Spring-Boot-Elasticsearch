@@ -25,16 +25,6 @@ public class SearchController {
 	@Autowired
 	private PoemServiceImpl poemService;
 
-	@RequestMapping("/searchWord")
-	public String searchWord(String content, @RequestParam(value="pageIndex",required=false,defaultValue="0") int pageIndex,
-			@RequestParam(value="pageSize",required=false,defaultValue="10") int pageSize,Model model) {
-		Pageable pageable = new PageRequest(pageIndex,pageSize);
-		Page<Poem> poems = poemService.searchWord(content,pageable);
-		List<Poem> list = poems.getContent();
-		model.addAttribute("poems",list);
-		return "/search/list";
-
-	}
 	@RequestMapping("/s1")
 	public String s1(
 			@RequestParam(value="pageIndex",required=false,defaultValue="0") int pageIndex,
@@ -45,7 +35,16 @@ public class SearchController {
 		model.addAttribute("poems",poems);
 		return "/search/s1";
 	}
+	@RequestMapping("/searchWord")
+	public String searchWord(String content, @RequestParam(value="pageIndex",required=false,defaultValue="0") int pageIndex,
+			@RequestParam(value="pageSize",required=false,defaultValue="10") int pageSize,Model model) {
+		Pageable pageable = new PageRequest(pageIndex,pageSize);
+		Page<Poem> poems = poemService.searchWord(content,pageable);
+		List<Poem> list = poems.getContent();
+		model.addAttribute("poems",list);
+		return "/search/list";
 
+	}
 
 
 }
