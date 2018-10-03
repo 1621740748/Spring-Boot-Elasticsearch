@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.alibaba.fastjson.JSON;
@@ -26,7 +27,7 @@ public class WebController {
 	@Autowired
 	private PoemServiceImpl poemService;
 
-	@RequestMapping("/poem/save")
+	@RequestMapping(value="/poem/save",method=RequestMethod.POST)
 	public String savePoem(
 			@RequestParam("title") String title
 			,@RequestParam("content") String content
