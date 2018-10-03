@@ -28,13 +28,7 @@ public class WebController {
 	private PoemServiceImpl poemService;
 
 	@RequestMapping(value="/poem/save",method=RequestMethod.POST)
-	public String savePoem(
-			@RequestParam("title") String title
-			,@RequestParam("content") String content
-			){
-		Poem poem=new Poem();
-		poem.setTitle(title);
-		poem.setContent(content);
+	public String savePoem(Poem poem){
         poem.setId(System.currentTimeMillis());
         System.out.println(JSON.toJSONString(poem));
         
