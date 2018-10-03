@@ -21,4 +21,7 @@ public interface PoemService {
 
    //返回所有数据集合
    Page<Poem> findAll(Pageable pageable);
+   
+   //基于content进行单词搜索，返回分页
+   Page<Poem> searchWord(String content,Pageable pageable);
 }

@@ -36,4 +36,10 @@ public class PoemServiceImpl implements PoemService{
     public Page<Poem> findAll(Pageable pageable) {
         return poemRepository.findAll(pageable);
     }
+
+	@Override
+	public Page<Poem> searchWord(String content, Pageable pageable) {
+
+		return poemRepository.findByContent(content, pageable);
+	}
 }

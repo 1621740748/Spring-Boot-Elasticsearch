@@ -13,5 +13,5 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
 public interface PoemRepository extends ElasticsearchRepository<Poem,Long>{
     Page<Poem> findByTitleLikeOrContentLike(String title, String content, Pageable pageable);
     Page<Poem> findByContentLike(String content,Pageable pageable);
-
+    Page<Poem> findByContent(String content,Pageable pageable);
 }
